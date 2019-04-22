@@ -10,7 +10,7 @@
           <div class="panel-heading">
             <h3 class="panel-title">
             Promoted Poll
-</h3>
+            </h3>
           </div>
           <div class="panel-body">
             <ul class="list-group">
@@ -44,13 +44,15 @@
         {% endif %}
         <div class="panel panel-default widget">
           <div class="panel-heading">
+            {% if request.GET.order == "trending" %}<span class="glyphicon glyphicon-signal"></span>{% endif %}
+            {% if request.GET.order == "new" %}<span class="glyphicon glyphicon-flash"></span>{% endif %}
+            {% if request.GET.order == "promoted" %}<span class="glyphicon glyphicon-star"></span>{% endif %}
             <h3 class="panel-title">
               {% if request.GET.order == "trending" %}Trending{% endif %}
               {% if request.GET.order == "new" %}Recent{% endif %}
               {% if request.GET.order == "promoted" %}Promoted{% endif %}
-
-              Polls</h3>
-
+              Polls
+            </h3>
           </div>
           <div class="panel-body">
             <ul class="list-group">
@@ -105,6 +107,7 @@
       <div class="col-md-4">
         <div class="panel panel-default widget">
           <div class="panel-heading">
+            <span class="glyphicon glyphicon-stats"></span>
             <h3 class="panel-title">
               General Stats</h3>
           </div>
@@ -124,9 +127,8 @@
                       <span class="mic-info">
                         Votes
                       </span>
-                                          </div>
+                    </div>
                     <div>
-
                       <strong>{{ stats.user_count }}</strong>
                       <span class="mic-info">
                         Users
@@ -140,6 +142,7 @@
         </div>
         <div class="panel panel-default widget">
           <div class="panel-heading">
+            <span class="glyphicon glyphicon-stats"></span>
             <h3 class="panel-title">
               Top dPollers</h3>
           </div>
@@ -166,6 +169,7 @@
         </div>
         <div class="panel panel-default widget">
           <div class="panel-heading">
+            <span class="glyphicon glyphicon-stats"></span>
             <h3 class="panel-title">
               Top voters</h3>
           </div>

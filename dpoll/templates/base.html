@@ -18,16 +18,10 @@
       rel="stylesheet"
       integrity="sha384-Tfj13fqQQqqzQFuaZ81WDzmmOU610WeS08VMuHmElK5oI2f7NwojuL6VupYXR/jK"
       crossorigin="anonymous">
+
+  <link rel="stylesheet" href="/static/styles/main.css">
+
   <style>
-    div {
-      font-size: 16px;
-    }
-
-    body {
-      padding-top: 70px;
-      background-color: #E4E4E4;
-    }
-
     /*  REQUIRED POLL DIV STYLES */
 
     .user-poll-section .progress {
@@ -37,7 +31,6 @@
     .user-poll-section {
       display: inline;
     }
-
 
     .user-poll-section .panel {
       border-radius: 8px;
@@ -98,21 +91,6 @@
       border-radius: 20%;
       margin-right: 12px;
     }
-
-    .navigation {
-      font-size: 15px !important;
-      line-height: 13px !important;
-    }
-
-    .poll-button {
-      padding-top: 22px;
-    }
-
-    @media only screen and (max-width: 768px) {
-      .poll-button {
-        padding: 7px 0px 0px 0px;
-      }
-    }
   </style>
   {% block extra_css %}
   {% endblock %}
@@ -146,20 +124,25 @@
           <li class="dropdown">
             <a data-toggle="dropdown" class="dropdown-toggle"
                href="#">
-                            <span class="profile-ava">
-                                <img alt=""
-                                     src="https://steemitimages.com/u/{{ request.user.username }}/avatar/small"
-                                     width="34px">
-                            </span>
+              <span class="glyphicon glyphicon-chevron-down"></span>
               <span class="username">@{{ request.user.username }}</span>
-              <b class="caret"></b>
+              <span class="profile-ava">
+                  <img alt=""
+                        src="https://steemitimages.com/u/{{ request.user.username }}/avatar/small"
+                        width="34px">
+              </span>   
             </a>
             <ul class="dropdown-menu extended logout">
               <div class="log-arrow-up"></div>
               <li>
                 <a href={{ request.user.profile_url }}>
-                  Profile</a></li>
-              <li><a href="{% url 'logout' %}">Logout</a></li>
+                  <span class="glyphicon glyphicon-user"></span>
+                  Profile
+                </a></li>
+              <li><a href="{% url 'logout' %}">
+                <span class="glyphicon glyphicon-log-out"></span>
+                Logout
+              </a></li>
             </ul>
           </li>
         {% endif %}
@@ -170,6 +153,7 @@
         <ul class="nav navbar-header navbar-right">
           <a class="navbar-brand poll-button navigation"
              href="{% url 'create-poll' %}"><strong>
+            <span class="glyphicon glyphicon-plus"></span>
             Create Poll</strong></a>
         </ul>
       {% endif %}
@@ -179,6 +163,7 @@
       <ul class="nav navbar-header navbar-center">
         <a class="navbar-brand poll-button navigation"
            href="{% url 'index' %}?order=promoted">
+          <span class="glyphicon glyphicon-star"></span>
           <strong>Promoted</strong>
         </a>
       </ul>
@@ -187,6 +172,7 @@
       <ul class="nav navbar-header navbar-center">
         <a class="navbar-brand poll-button navigation"
            href="{% url 'index' %}?order=trending">
+          <span class="glyphicon glyphicon-signal"></span>
           <strong>Trending</strong>
         </a>
       </ul>
@@ -194,6 +180,7 @@
       <ul class="nav navbar-header navbar-center">
         <a class="navbar-brand poll-button navigation"
            href="{% url 'index' %}?order=new">
+           <span class="glyphicon glyphicon-flash"></span>
           <strong>New</strong>
         </a>
       </ul>
